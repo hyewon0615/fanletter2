@@ -1,7 +1,7 @@
-import styled from "styled-components";
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 const LetterImg = styled.img`
   width: 30px;
@@ -45,7 +45,11 @@ function Letters() {
   });
 
   const filteredLetter = fanletter.letters.filter((L) => {
-    return writeToselect.select.includes(L.writedTo);
+    if (writeToselect.select == "전체") {
+      return fanletter;
+    } else {
+      return writeToselect.select.includes(L.writedTo);
+    }
   });
 
   return (

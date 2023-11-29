@@ -4,7 +4,7 @@ export const writeToSelect = (payload) => {
 };
 
 const initialState = {
-  select: "아이돌 솔로가수 배우",
+  select: "전체",
 };
 
 const filteredLetter = (state = initialState, action) => {

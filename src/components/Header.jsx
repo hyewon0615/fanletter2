@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import styled, { css } from "styled-components";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { writeToSelect } from "redux/modules/filteredLetter";
+import styled, { css } from "styled-components";
 
 const HeaderStyle = styled.header`
   background-color: #e0ffbd;
@@ -24,7 +24,9 @@ const ButtonBoxStyle = styled.div`
 `;
 const CategoryBtnStyle = styled.button`
   ${(props) => {
-    if (props.$selectBtn === props.children) {
+    console.log(props.$select);
+    console.log(props.children);
+    if (props.$select === props.children) {
       return css`
         background-color: greenyellow;
       `;
@@ -43,54 +45,24 @@ const CategoryBtnStyle = styled.button`
 `;
 
 function Header() {
-  const [selectBtn, setSelectBtn] = useState("전체");
+  const selectBtn = ["전체", "아이돌", "배우", "솔로가수"];
+  const select = useSelector((state) => state.filteredLetter.select);
 
   const dispatch = useDispatch();
-  const allBtnClickColorhandler = () => {
-    setSelectBtn("전체");
-    dispatch(writeToSelect("아이돌 솔로가수 배우"));
+
+  const onSelect = (e) => {
+    if (e.target === e.currentTarget) return;
+    dispatch(writeToSelect(e.target.textContent));
   };
-  const IdolBtnClickColorhandler = () => {
-    setSelectBtn("아이돌");
-    dispatch(writeToSelect("아이돌"));
-  };
-  const ActorBtnClickColorhandler = () => {
-    setSelectBtn("배우");
-    dispatch(writeToSelect("배우"));
-  };
-  const SingerBtnClickColorhandler = () => {
-    setSelectBtn("솔로가수");
-    dispatch(writeToSelect("솔로가수"));
-  };
+
   return (
     <HeaderStyle>
       <h1>팬명록</h1>
 
-      <ButtonBoxStyle>
-        <CategoryBtnStyle
-          $selectBtn={selectBtn}
-          onClick={allBtnClickColorhandler}
-        >
-          전체
-        </CategoryBtnStyle>
-        <CategoryBtnStyle
-          $selectBtn={selectBtn}
-          onClick={IdolBtnClickColorhandler}
-        >
-          아이돌
-        </CategoryBtnStyle>
-        <CategoryBtnStyle
-          $selectBtn={selectBtn}
-          onClick={SingerBtnClickColorhandler}
-        >
-          솔로가수
-        </CategoryBtnStyle>
-        <CategoryBtnStyle
-          $selectBtn={selectBtn}
-          onClick={ActorBtnClickColorhandler}
-        >
-          배우
-        </CategoryBtnStyle>
+      <ButtonBoxStyle onClick={onSelect}>
+        {selectBtn.map((b) => {
+          return <CategoryBtnStyle $select={select}>{b}</CategoryBtnStyle>;
+        })}
       </ButtonBoxStyle>
     </HeaderStyle>
   );
