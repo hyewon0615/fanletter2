@@ -6,9 +6,12 @@ import LetterBox from "components/LetterBox";
 function Home() {
   return (
     <div>
-      <Header />
-      <Form />
-      <LetterBox />
+      <div>
+        <Header />
+        <Form />
+        <LetterBox />
+      </div>
+
       <Footer />
     </div>
   );

@@ -1,47 +1,101 @@
-import { data } from "shared/fakedata";
-//action creator
-const ADD_LETTER = "ADD_LETTER";
-const DELETE_LETTER = "DELETE_LETTER";
-const EDIT_LETTER = "EDIT_LETTER";
-export const addLetter = (payload) => {
-  return { type: ADD_LETTER, payload };
-};
-export const deleteLetter = (id) => {
-  return { type: DELETE_LETTER, id };
-};
-export const editLetter = (payload) => {
-  return { type: EDIT_LETTER, payload };
-};
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+
+export const __addLetter = createAsyncThunk(
+  "ADD_LETTER",
+  async (payload, thunkAPI) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:4000/letters",
+        payload,
+      );
+      return thunkAPI.fulfillWithValue(response.data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  },
+);
+
+export const __deleteLetter = createAsyncThunk(
+  "DELETE_LETTER",
+  async (payload, thunkAPI) => {
+    try {
+      await axios.delete(`http://localhost:4000/letters/${payload}`); //Promise-> resolve(네크워크 요청이 성공한 경우)-> dispatch해주는 기능을 가진 API
+      return thunkAPI.fulfillWithValue(payload);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  },
+);
+
+export const __editLetter = createAsyncThunk(
+  "EDIT_LETTER",
+  async (payload, thunkAPI) => {
+    try {
+      await axios.patch(`http://localhost:4000/letters/${payload.id}`, payload);
+      return thunkAPI.fulfillWithValue(payload);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  },
+);
 
 const initialState = {
-  letters: data,
+  letters: [],
+  isLoading: false,
+  isError: false,
+  error: null,
 };
+export const __getLetters = createAsyncThunk(
+  "getLetters",
+  async (payload, thunkAPI) => {
+    try {
+      const response = await axios.get("http://localhost:4000/letters");
 
-const fanletter = (state = initialState, action) => {
-  switch (action.type) {
-    case ADD_LETTER:
-      return {
-        ...state,
-        letters: [...state.letters, action.payload],
-      };
-    case DELETE_LETTER:
-      const filteredLetters = state.letters.filter(
-        (letter) => letter.id !== action.id,
+      //Promise-> resolve(네크워크 요청이 성공한 경우)-> dispatch해주는 기능을 가진 API
+      return thunkAPI.fulfillWithValue(response.data);
+    } catch (error) {
+      //Promise-> resolve(네크워크 요청이 실패한 경우)-> dispatch해주는 기능을 가진 API
+      return thunkAPI.rejectWithValue(error);
+    }
+  },
+);
+export const fanletter = createSlice({
+  name: "letters",
+  initialState,
+  reducers: {},
+  extraReducers: {
+    [__getLetters.pending]: (state, action) => {
+      state.isLoading = true;
+      state.isError = false;
+    },
+    [__getLetters.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.isError = false;
+      state.letters = action.payload;
+    },
+    [__getLetters.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.isError = true;
+    },
+    [__addLetter.fulfilled]: (state, action) => {
+      state.letters.push(action.payload);
+    },
+    [__deleteLetter.fulfilled]: (state, action) => {
+      state.letters = state.letters.filter(
+        (item) => item.id !== action.payload,
       );
+    },
+    [__editLetter.fulfilled]: (state, action) => {
+      state.letters = state.letters.map((item) => {
+        if (item.id === action.payload.id) {
+          return (item = action.payload);
+        }
+        return item;
+      });
+    },
+  },
+});
 
-      return {
-        ...state,
-        letters: filteredLetters,
-      };
-
-    case EDIT_LETTER:
-      return {
-        ...state,
-        letters: action.payload,
-      };
-    default:
-      return state;
-  }
-};
-
-export default fanletter;
+export const { addLetter, deleteLetter, editLetter } = fanletter.actions;
+export default fanletter.reducer;

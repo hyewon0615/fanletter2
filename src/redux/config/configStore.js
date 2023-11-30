@@ -1,11 +1,11 @@
-import { createStore } from "redux";
-import { combineReducers } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
 import fanletter from "redux/modules/fanletter";
 import filteredLetter from "redux/modules/filteredLetter";
-const rootReducer = combineReducers({
-  fanletter,
-  filteredLetter,
-});
-const store = createStore(rootReducer);
 
+const store = configureStore({
+  reducer: {
+    fanletter,
+    filteredLetter,
+  },
+});
 export default store;

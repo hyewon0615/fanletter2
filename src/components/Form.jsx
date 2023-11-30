@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import uuid from "react-uuid";
 import defaultAvarta from "assets/defaultAvarta.png";
-import styled from "styled-components";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addLetter } from "redux/modules/fanletter";
+import uuid from "react-uuid";
+import { __addLetter } from "redux/modules/fanletter";
+import styled from "styled-components";
 
 const FormStyle = styled.form`
   margin-top: 10px;
@@ -59,7 +59,7 @@ function Form() {
       alert("닉네임과 내용은 필수입니다!");
     } else {
       dispatch(
-        addLetter({
+        __addLetter({
           createdAt: `${years}-${month + 1}-${day} ${hours}:${minutes}`,
           nickname: nickname,
           avatar: defaultAvarta,

@@ -1,6 +1,7 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { __getLetters } from "redux/modules/fanletter";
 import styled from "styled-components";
 
 const LetterImg = styled.img`
@@ -37,20 +38,34 @@ const TimeStyle = styled.p`
 
 function Letters() {
   const navigate = useNavigate();
-  const fanletter = useSelector((state) => {
+  const dispatch = useDispatch();
+
+  const { isLoading, error, letters } = useSelector((state) => {
     return state.fanletter;
   });
-  const writeToselect = useSelector((state) => {
-    return state.filteredLetter;
-  });
 
-  const filteredLetter = fanletter.letters.filter((L) => {
-    if (writeToselect.select == "전체") {
-      return fanletter;
+  useEffect(() => {
+    dispatch(__getLetters());
+  }, []);
+
+  const writeToselect = useSelector((state) => {
+    return state.filteredLetter.select;
+  });
+  console.log(letters);
+  const filteredLetter = letters.filter((L) => {
+    if (writeToselect == "전체") {
+      return letters;
     } else {
-      return writeToselect.select.includes(L.writedTo);
+      return writeToselect === L.writedTo;
     }
   });
+
+  if (isLoading) {
+    return <div>로딩중..</div>;
+  }
+  if (error) {
+    return <div>{error.message}</div>;
+  }
 
   return (
     <>

@@ -1,30 +1,18 @@
 import React from "react";
-// import styled from 'styled-components'
+import styled from "styled-components";
 
-//이거 왜 안되지? 엥... 우선 인라인으로 하자..
-// 왜 안되는지 알려주세요ㅜ
-
-// const footerStyle = styled.div`
-//   display: flex;
-//   justify-content: center;
-// `
+const FooterStyle = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  font-size: 20px;
+  margin-top: 20px;
+  background-color: #e0ffbd;
+`;
 
 function Footer() {
-  return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "80px",
-        fontSize: "20px",
-        marginTop: "20px",
-        backgroundColor: "#e0ffbd",
-      }}
-    >
-      덕질은 재밌지만 돈 많이 들어..{" "}
-    </div>
-  );
+  return <FooterStyle>덕질은 재밌지만 돈 많이 들어.. </FooterStyle>;
 }
 
 export default React.memo(Footer);

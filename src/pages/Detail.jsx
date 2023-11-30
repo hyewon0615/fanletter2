@@ -1,8 +1,12 @@
-import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import styled from "styled-components";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteLetter, editLetter } from "redux/modules/fanletter";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  __deleteLetter,
+  __editLetter,
+  __getLetters,
+} from "redux/modules/fanletter";
+import styled from "styled-components";
 
 const EditTextStyle = styled.textarea`
   width: 500px;
@@ -62,13 +66,17 @@ const DetailButton = styled.button`
 `;
 
 function Detail() {
-  const fanletter = useSelector((state) => {
+  const params = useParams();
+
+  const { letters } = useSelector((state) => {
     return state.fanletter;
   });
 
-  const params = useParams();
+  useEffect(() => {
+    dispatch(__getLetters());
+  }, []);
 
-  const foundLetter = fanletter.letters.find((letter) => {
+  const foundLetter = letters.find((letter) => {
     return letter.id === params.id;
   });
 
@@ -77,7 +85,7 @@ function Detail() {
 
   const removeLetterHandler = (id) => {
     if (window.confirm("정말로 지우시겠습니까?")) {
-      dispatch(deleteLetter(id));
+      dispatch(__deleteLetter(id));
       navigate(`/`);
     } else {
       alert("취소되었습니다");
@@ -91,18 +99,20 @@ function Detail() {
     setEditedLetter(event.target.value);
   };
 
-  const finishEditHandler = (id) => {
-    const editcontent = fanletter.letters.map((item) => ({
-      ...item,
-      content: item.id === id ? editedLetter : item.content,
-    }));
+  const finishEditHandler = () => {
+    const editcontent = {
+      ...foundLetter,
+      content: editedLetter,
+    };
+
     if (editedLetter === foundLetter.content) {
       alert("수정된 부분이 없습니다.");
     } else {
-      dispatch(editLetter(editcontent));
+      dispatch(__editLetter(editcontent));
       setIsEdit(false);
     }
   };
+
   return (
     <Modalstyle>
       <DetailButton
