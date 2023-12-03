@@ -12,7 +12,7 @@ const StLoginBox = styled.form`
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  border: 3px solid greenyellow;
+  border: 3px solid var(--maincolor);
   width: 300px;
   height: 500px;
   border-radius: 20px;
@@ -26,26 +26,27 @@ const StContainer = styled.div`
   align-items: center;
 `;
 const StButton = styled.button`
-  background-color: greenyellow;
-  border: greenyellow;
+  background-color: var(--maincolor);
+  border: var(--maincolor);
   border-radius: 15px;
   padding: 5px 8px 5px 8px;
   cursor: pointer;
   margin-top: 50px;
 `;
 const StH1 = styled.h1`
+  color: #262758;
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 80px;
 `;
 const InputStyle = styled.input`
   height: 25px;
-  border: 2px solid greenyellow;
+  border: 2px solid var(--maincolor);
   border-radius: 10px;
   padding-left: 10px;
 `;
 const StLink = styled.p`
-  color: greenyellow;
+  color: var(--maincolor);
   font-size: 10px;
   cursor: pointer;
 `;
@@ -109,7 +110,7 @@ function Join() {
     const toLogin = async () => {
       try {
         const response = await axios.post(
-          "https://moneyfulpublicpolicy.co.kr/login",
+          "https://moneyfulpublicpolicy.co.kr/login?expiresIn=1m",
           userInfo,
         );
         console.log(response);

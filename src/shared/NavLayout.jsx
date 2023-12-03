@@ -10,10 +10,11 @@ const Nav = styled.div`
   align-items: center;
   gap: 20px;
   cursor: pointer;
-  background-color: greenyellow;
+  background-color: #8d90ff;
   height: 30px;
   padding-left: 10px;
   padding-right: 10px;
+  color: white;
 `;
 const RightZone = styled.div`
   display: flex;

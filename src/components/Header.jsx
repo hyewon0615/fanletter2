@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import SelectBtn from "./SelectBtn";
 const HeaderSt = styled.div`
-  background-color: #e0ffbd;
-  height: 250px;
+  height: 200px;
   padding: 20px;
 `;
 const Title = styled.div`
@@ -17,6 +16,7 @@ const Title = styled.div`
 const H1 = styled.h1`
   font-size: 40px;
   font-weight: 800;
+  color: #262758;
 `;
 
 function Header() {

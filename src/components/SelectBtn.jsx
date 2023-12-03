@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { __writeToSelect } from "redux/modules/filteredLetter";
 import styled, { css } from "styled-components";
 const ButtonBoxStyle = styled.div`
-  border: 3px solid greenyellow;
+  border: 3px solid var(--maincolor);
   border-radius: 20px;
   width: 400px;
   display: flex;
@@ -13,16 +13,18 @@ const CategoryBtnStyle = styled.button`
   ${(props) => {
     if (props.$select === props.children) {
       return css`
-        background-color: greenyellow;
+        background-color: var(--maincolor);
+        color: white;
       `;
     } else {
       return css`
         background-color: white;
+        color: var(--maincolor);
       `;
     }
   }}
 
-  border: 2px solid greenyellow;
+  border: 2px solid var(--maincolor);
   border-radius: 10px;
   padding: 5px 10px 5px 10px;
   margin: 8px;

@@ -2,15 +2,21 @@ import Footer from "components/Footer";
 import Form from "components/Form";
 import Header from "components/Header";
 import LetterBox from "components/LetterBox";
-
-function Home() {
+import styled from "styled-components";
+const Homest = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+function Home({ user }) {
+  console.log(user);
   return (
     <div>
-      <div>
-        <Header />
-        <Form />
+      <Header />
+      <Homest>
+        <Form user={user} />
         <LetterBox />
-      </div>
+      </Homest>
 
       <Footer />
     </div>

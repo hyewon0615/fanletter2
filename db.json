@@ -6,7 +6,8 @@
       "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/36.jpg",
       "content": "티아라 노래 아직도 듣는다. 내 청춘을 바칠 준비가 되어있었는데...맞아..그래 ㄹㄹ",
       "writedTo": "아이돌",
-      "id": "0"
+      "id": "0",
+      "userId": "bear"
     },
     {
       "createdAt": "2023-11-02 23:13",
@@ -14,7 +15,8 @@
       "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/298.jpg",
       "content": "김고은이 좋아. 연기잘하고 차이나 타운에서 멋져, 중학새때 차이나 타운보고 입덕했어",
       "writedTo": "배우",
-      "id": "1"
+      "id": "1",
+      "userId": "bear"
     },
     {
       "createdAt": "2023-11-02 11:25",
@@ -22,7 +24,8 @@
       "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/646.jpg",
       "content": "이준기는 참 예쁘게 생겼어 왜그렇게 예쁘게 생겼지 뭘 보고 좋아했었는지 기억은 안나네..",
       "writedTo": "배우",
-      "id": "2"
+      "id": "2",
+      "userId": "bear"
     },
     {
       "createdAt": "2023-11-02 16:06",
@@ -30,7 +33,8 @@
       "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/37.jpg",
       "content": "최예나 내 최애가 되어라. 최성민부터 시작해서 남매 덕질로 이어지기 노래 많이 내줘, 예능 많이 나와줘",
       "writedTo": "솔로가수",
-      "id": "3"
+      "id": "3",
+      "userId": "bear"
     },
     {
       "createdAt": "2023-11-03 05:40",
@@ -38,7 +42,48 @@
       "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/720.jpg",
       "content": "엔믹스 노래 내놔. 빨리",
       "writedTo": "아이돌",
-      "id": "4"
+      "id": "4",
+      "userId": "bear"
+    },
+    {
+      "createdAt": "2023-12-4 4:24",
+      "nickname": "곰",
+      "avatar": "/static/media/defaultAvarta.ebbc658e87ba2676635b.png",
+      "content": "어떻게 되지?",
+      "writedTo": "아이돌",
+      "id": "e00a8fde-b7b9-0130-c941-39d72ba1708e",
+      "isEdit": false,
+      "userId": "bear"
+    },
+    {
+      "createdAt": "2023-12-4 4:28",
+      "nickname": "진짜",
+      "avatar": "/static/media/defaultAvarta.ebbc658e87ba2676635b.png",
+      "content": "이제 되라dd",
+      "writedTo": "아이돌",
+      "id": "1a494512-375f-ea33-7f27-f80a2e67584b",
+      "isEdit": false,
+      "userId": "real"
+    },
+    {
+      "createdAt": "2023-12-4 4:30",
+      "nickname": "곰",
+      "avatar": "/static/media/defaultAvarta.ebbc658e87ba2676635b.png",
+      "content": "두번째 체크",
+      "writedTo": "아이돌",
+      "id": "e34a6be0-ebf7-1a02-8792-441f97757e51",
+      "isEdit": false,
+      "userId": "bear"
+    },
+    {
+      "createdAt": "2023-12-4 4:32",
+      "nickname": "진짜",
+      "avatar": "/static/media/defaultAvarta.ebbc658e87ba2676635b.png",
+      "content": "유저 아이디 체크",
+      "writedTo": "아이돌",
+      "id": "0614c39d-f5ad-7793-2486-ac4c08396474",
+      "isEdit": false,
+      "userId": "real"
     }
   ]
 }

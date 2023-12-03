@@ -4,10 +4,9 @@ import Join from "pages/Join";
 import MyProfile from "pages/MyProfile";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { __userData } from "redux/modules/login";
 import NavLayout from "./NavLayout";
-
 function Router() {
   const { islogin } = useSelector((state) => {
     return state.authSlice;
@@ -17,7 +16,7 @@ function Router() {
   });
   useEffect(() => {
     dispatch(__userData());
-  }, []);
+  }, [user]);
 
   console.log(user);
   const dispatch = useDispatch();
@@ -34,14 +33,15 @@ function Router() {
       {islogin ? (
         <Routes>
           <Route path="/" element={<NavLayout />}>
-            <Route path="/home" element={<Home />} />
-            <Route path="/detail/:id" element={<Detail />} />
-            <Route path="/myProfile" element={<MyProfile />} />
+            <Route path="/home" element={<Home user={user} />} />
+            <Route path="/detail/:id" element={<Detail user={user} />} />
+            <Route path="/myProfile" element={<MyProfile user={user} />} />
           </Route>
         </Routes>
       ) : (
         <Routes>
           <Route path="/join" element={<Join />} />
+          <Route path="*" element={<Navigate replace to="/join" />} />
         </Routes>
       )}
     </BrowserRouter>

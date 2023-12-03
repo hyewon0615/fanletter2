@@ -48,6 +48,10 @@ const GlobalSytle = createGlobalStyle`
     *{
         box-sizing: border-box;
     }
+    :root {
+  --maincolor : #8d90ff;
+  --subcolor:#d2d4ff
+}
 
 
 `;

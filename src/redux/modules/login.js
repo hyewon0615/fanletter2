@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+
 import loginApi from "../../axios/loginApi";
 
 export const __userData = createAsyncThunk(
@@ -18,7 +19,9 @@ export const __userData = createAsyncThunk(
       return thunkAPI.fulfillWithValue(response);
     } catch (error) {
       console.log(error);
-      alert(error);
+      alert("로그아웃 되었습니다");
+      localStorage.clear();
+      // dispatch(__isLogin(false));
       return thunkAPI.rejectWithValue(error);
     }
   },

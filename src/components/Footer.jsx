@@ -8,7 +8,6 @@ const FooterStyle = styled.div`
   height: 80px;
   font-size: 20px;
   margin-top: 20px;
-  background-color: #e0ffbd;
 `;
 
 function Footer() {

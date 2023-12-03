@@ -12,7 +12,7 @@ const EditTextStyle = styled.textarea`
   width: 500px;
   height: 130px;
   margin-bottom: 10px;
-  border: 2px solid greenyellow;
+  border: 2px solid var(--maincolor);
   padding: 15px;
 `;
 const TextStyle = styled.p`
@@ -31,7 +31,7 @@ const Modalstyle = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #bcc9a3;
+  background-color: #dcdceb;
 `;
 
 const DetailStyle = styled.div`
@@ -58,14 +58,15 @@ const TimeStyle = styled.p`
   color: #626262;
 `;
 const DetailButton = styled.button`
-  background-color: greenyellow;
-  border: greenyellow;
+  background-color: var(--maincolor);
+  border: var(--maincolor);
   border-radius: 15px;
   padding: 5px 8px 5px 8px;
   margin: 10px 0px 10px 10px;
+  color: white;
 `;
 
-function Detail() {
+function Detail({ user }) {
   const params = useParams();
 
   const { letters } = useSelector((state) => {
@@ -86,7 +87,7 @@ function Detail() {
   const removeLetterHandler = (id) => {
     if (window.confirm("정말로 지우시겠습니까?")) {
       dispatch(__deleteLetter(id));
-      navigate(`/`);
+      navigate(`/home`);
     } else {
       alert("취소되었습니다");
     }
@@ -117,7 +118,7 @@ function Detail() {
     <Modalstyle>
       <DetailButton
         onClick={() => {
-          navigate(`/`);
+          navigate(`/home`);
         }}
       >
         Home
@@ -132,35 +133,41 @@ function Detail() {
           </div>
         </ProfileStyle>
 
-        {isEdit ? (
-          <>
-            <EditTextStyle value={editedLetter} onChange={editTextHandler}>
-              {foundLetter.content}
-            </EditTextStyle>
-            <DetailButton
-              onClick={() => {
-                finishEditHandler(foundLetter.id);
-              }}
-            >
-              수정완료
-            </DetailButton>
-          </>
-        ) : (
-          <>
-            <TextStyle>{foundLetter.content}</TextStyle>
-            <div>
+        {user.data.id === foundLetter.userId ? (
+          isEdit ? (
+            <>
+              <EditTextStyle value={editedLetter} onChange={editTextHandler}>
+                {foundLetter.content}
+              </EditTextStyle>
               <DetailButton
                 onClick={() => {
-                  setIsEdit(!isEdit);
+                  finishEditHandler(foundLetter.id);
                 }}
               >
-                수정
+                수정완료
               </DetailButton>
-              <DetailButton onClick={() => removeLetterHandler(foundLetter.id)}>
-                삭제
-              </DetailButton>
-            </div>
-          </>
+            </>
+          ) : (
+            <>
+              <TextStyle>{foundLetter.content}</TextStyle>
+              <div>
+                <DetailButton
+                  onClick={() => {
+                    setIsEdit(!isEdit);
+                  }}
+                >
+                  수정
+                </DetailButton>
+                <DetailButton
+                  onClick={() => removeLetterHandler(foundLetter.id)}
+                >
+                  삭제
+                </DetailButton>
+              </div>
+            </>
+          )
+        ) : (
+          <TextStyle>{foundLetter.content}</TextStyle>
         )}
       </DetailStyle>
     </Modalstyle>

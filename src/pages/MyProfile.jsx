@@ -1,6 +1,3 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { __userData } from "redux/modules/login";
 import styled from "styled-components";
 import defaultAvarta from "../assets/defaultAvarta.png";
 const StBox = styled.div`
@@ -8,7 +5,7 @@ const StBox = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  border: 3px solid greenyellow;
+  border: 3px solid var(--maincolor);
   width: 500px;
   height: 350px;
   border-radius: 20px;
@@ -22,8 +19,8 @@ const StContainer = styled.div`
   align-items: center;
 `;
 const StButton = styled.button`
-  background-color: greenyellow;
-  border: greenyellow;
+  background-color: var(--maincolor);
+  border: var(--maincolor);
   border-radius: 15px;
   padding: 5px 8px 5px 8px;
   cursor: pointer;
@@ -39,40 +36,15 @@ const Avarta = styled.img`
   border-radius: 50%;
 `;
 
-function MyProfile() {
-  const { isloading, error, user } = useSelector((state) => {
-    return state.login;
-  });
-  useEffect(() => {
-    dispatch(__userData());
-  }, []);
-
-  console.log(user);
-  const dispatch = useDispatch();
-
-  if (isloading) {
-    <div>유저데이터 불러오는 중</div>;
-  }
-  if (error) {
-    <div>{error.message}</div>;
-  }
-  const data = [user.data];
+function MyProfile({ user }) {
   return (
     <StContainer>
       <StBox>
         <StH1>MY PROFILE</StH1>
-        {/* {data?.map((u) => {
-          return (
-            <>
-              <Avarta src={defaultAvarta} />
-              <p>{u.nickname}</p>
-              <p>{u.id}</p>
-            </>
-          );
-        })} */}
+
         <Avarta src={defaultAvarta} />
-        <p>nickname</p>
-        <p>id</p>
+        <p>{user.data.nickname}</p>
+        <p>{user.data.id}</p>
 
         <StButton> 수정하기</StButton>
       </StBox>
