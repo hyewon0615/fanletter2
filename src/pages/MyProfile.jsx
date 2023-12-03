@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { __userData } from "redux/modules/login";
 import styled from "styled-components";
 import defaultAvarta from "../assets/defaultAvarta.png";
 const StBox = styled.div`
@@ -36,7 +39,20 @@ const Avarta = styled.img`
   border-radius: 50%;
 `;
 
-function MyProfile({ user }) {
+function MyProfile() {
+  const dispatch = useDispatch();
+  const { islogin } = useSelector((state) => {
+    return state.authSlice;
+  });
+
+  const { user } = useSelector((state) => {
+    return state.login;
+  });
+
+  useEffect(() => {
+    dispatch(__userData());
+  }, [islogin]);
+
   return (
     <StContainer>
       <StBox>

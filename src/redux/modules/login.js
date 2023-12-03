@@ -18,9 +18,10 @@ export const __userData = createAsyncThunk(
 
       return thunkAPI.fulfillWithValue(response);
     } catch (error) {
-      console.log(error);
-      alert("로그아웃 되었습니다");
       localStorage.clear();
+      console.log(error);
+      alert("토큰이 만료되었습니다.");
+
       return thunkAPI.rejectWithValue(error);
     }
   },

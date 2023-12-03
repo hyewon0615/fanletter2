@@ -1,10 +1,10 @@
 import defaultAvarta from "assets/defaultAvarta.png";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import uuid from "react-uuid";
 import { __addLetter } from "redux/modules/fanletter";
+import { __userData } from "redux/modules/login";
 import styled from "styled-components";
-
 const FormStyle = styled.form`
   margin-top: 10px;
   display: flex;
@@ -47,7 +47,7 @@ const SelectArea = styled.div`
   justify-content: space-between;
 `;
 
-function Form({ user }) {
+function Form() {
   const writedToSelectList = ["아이돌", "솔로가수", "배우"];
   const [writedTo, setWritedTo] = useState("아이돌");
 
@@ -85,6 +85,17 @@ function Form({ user }) {
       setContent("");
     }
   };
+  const { islogin } = useSelector((state) => {
+    return state.authSlice;
+  });
+
+  const { user } = useSelector((state) => {
+    return state.login;
+  });
+
+  useEffect(() => {
+    dispatch(__userData());
+  }, [islogin]);
 
   return (
     <FormStyle>

@@ -8,13 +8,12 @@ const Homest = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-function Home({ user }) {
-  console.log(user);
+function Home() {
   return (
     <div>
       <Header />
       <Homest>
-        <Form user={user} />
+        <Form />
         <LetterBox />
       </Homest>
 

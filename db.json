@@ -56,16 +56,6 @@
       "userId": "bear"
     },
     {
-      "createdAt": "2023-12-4 4:28",
-      "nickname": "진짜",
-      "avatar": "/static/media/defaultAvarta.ebbc658e87ba2676635b.png",
-      "content": "이제 되라dd",
-      "writedTo": "아이돌",
-      "id": "1a494512-375f-ea33-7f27-f80a2e67584b",
-      "isEdit": false,
-      "userId": "real"
-    },
-    {
       "createdAt": "2023-12-4 4:30",
       "nickname": "곰",
       "avatar": "/static/media/defaultAvarta.ebbc658e87ba2676635b.png",
@@ -74,16 +64,6 @@
       "id": "e34a6be0-ebf7-1a02-8792-441f97757e51",
       "isEdit": false,
       "userId": "bear"
-    },
-    {
-      "createdAt": "2023-12-4 4:32",
-      "nickname": "진짜",
-      "avatar": "/static/media/defaultAvarta.ebbc658e87ba2676635b.png",
-      "content": "유저 아이디 체크",
-      "writedTo": "아이돌",
-      "id": "0614c39d-f5ad-7793-2486-ac4c08396474",
-      "isEdit": false,
-      "userId": "real"
     },
     {
       "createdAt": "2023-12-4 8:21",

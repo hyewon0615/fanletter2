@@ -6,6 +6,7 @@ import {
   __editLetter,
   __getLetters,
 } from "redux/modules/fanletter";
+import { __userData } from "redux/modules/login";
 import styled from "styled-components";
 
 const EditTextStyle = styled.textarea`
@@ -66,7 +67,7 @@ const DetailButton = styled.button`
   color: white;
 `;
 
-function Detail({ user }) {
+function Detail() {
   const params = useParams();
 
   const { letters } = useSelector((state) => {
@@ -80,6 +81,17 @@ function Detail({ user }) {
   const foundLetter = letters.find((letter) => {
     return letter.id === params.id;
   });
+  const { islogin } = useSelector((state) => {
+    return state.authSlice;
+  });
+
+  const { user } = useSelector((state) => {
+    return state.login;
+  });
+
+  useEffect(() => {
+    dispatch(__userData());
+  }, [islogin]);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
