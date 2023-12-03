@@ -21,7 +21,6 @@ export const __userData = createAsyncThunk(
       console.log(error);
       alert("로그아웃 되었습니다");
       localStorage.clear();
-      // dispatch(__isLogin(false));
       return thunkAPI.rejectWithValue(error);
     }
   },

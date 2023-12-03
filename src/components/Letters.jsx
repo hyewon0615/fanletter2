@@ -61,12 +61,13 @@ function Letters() {
     }
   });
 
-  if (isLoading) {
-    return <div>로딩중..</div>;
-  }
-  if (error) {
-    return <div>{error.message}</div>;
-  }
+  //존재 의미가 무엇..?
+  // if (isLoading) {
+  //   return console.log("로딩중");
+  // }
+  // if (error) {
+  //   return <div>{error.message}</div>;
+  // }
 
   return (
     <>

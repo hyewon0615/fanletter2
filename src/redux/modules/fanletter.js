@@ -47,7 +47,7 @@ export const __getLetters = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       const response = await api.get("/letters");
-
+      console.log(response);
       //Promise-> resolve(네크워크 요청이 성공한 경우)-> dispatch해주는 기능을 가진 API
       return thunkAPI.fulfillWithValue(response.data);
     } catch (error) {

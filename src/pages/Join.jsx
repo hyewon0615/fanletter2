@@ -57,9 +57,6 @@ function Join() {
   const [nickname, onChangeNicknameHandler] = useInput();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // const { isLogin } = useSelector((state) => {
-  //   return state.authSlice;
-  // });
 
   const idLength = id.length > 3 && id.length < 10;
   const nicknameLength = password.length > 3 && password.length < 15;
@@ -69,13 +66,6 @@ function Join() {
     event.preventDefault();
 
     if (idLength && nicknameLength && passwordLength) {
-      // dispatch(
-      //   __addUser({
-      //     id,
-      //     password,
-      //     nickname,
-      //   }),
-      // );
       const userInfo = { id, password, nickname };
 
       const toJoin = async () => {
@@ -84,11 +74,10 @@ function Join() {
             "https://moneyfulpublicpolicy.co.kr/register",
             userInfo,
           );
-          console.log(response.data.message);
+
           alert(response.data.message);
           setJoin(false);
         } catch (error) {
-          console.log(error.response.data.message);
           alert(error.response.data.message);
         }
       };
@@ -100,20 +89,15 @@ function Join() {
   const loginHandler = function (event) {
     event.preventDefault();
 
-    // dispatch(
-    //   __loginUser({
-    //     id,
-    //     password,
-    //   }),
-    // );
     const userInfo = { id, password };
     const toLogin = async () => {
       try {
         const response = await axios.post(
+          // "https://moneyfulpublicpolicy.co.kr/login?expiresIn=10m",
           "https://moneyfulpublicpolicy.co.kr/login?expiresIn=1m",
           userInfo,
         );
-        console.log(response);
+
         const accessToken = response.data.accessToken;
 
         localStorage.setItem("accessToken", accessToken);
@@ -121,7 +105,6 @@ function Join() {
         dispatch(__isLogin(true));
         navigate(`/home`);
       } catch (error) {
-        console.log(error);
         alert(error.response.data.message);
       }
     };

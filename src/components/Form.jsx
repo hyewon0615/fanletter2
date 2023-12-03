@@ -52,10 +52,9 @@ function Form({ user }) {
   const [writedTo, setWritedTo] = useState("아이돌");
 
   const writedToHanldler = (event) => setWritedTo(event.target.value);
-  const [nickname, setNickname] = useState("");
+
   const [content, setContent] = useState("");
 
-  const nicknameHanldler = (event) => setNickname(event.target.value);
   const contentHanldler = (event) => setContent(event.target.value);
 
   const date = new Date();
@@ -84,16 +83,14 @@ function Form({ user }) {
         }),
       );
       setContent("");
-      setNickname("");
     }
   };
-  console.log(user);
 
   return (
     <FormStyle>
       <div>
         <label>이름 : </label>
-        {user.data.nickname}{" "}
+        {user.length === 0 ? "유저데이터 가져오는 중" : user.data.nickname}{" "}
       </div>
       <InputArea>
         <label>내용</label>

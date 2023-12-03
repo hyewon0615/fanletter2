@@ -84,6 +84,16 @@
       "id": "0614c39d-f5ad-7793-2486-ac4c08396474",
       "isEdit": false,
       "userId": "real"
+    },
+    {
+      "createdAt": "2023-12-4 8:21",
+      "nickname": "곰",
+      "avatar": "/static/media/defaultAvarta.ebbc658e87ba2676635b.png",
+      "content": "추가해볼게요..",
+      "writedTo": "아이돌",
+      "id": "d56a458c-b7d1-bbc5-80a1-afdb43ab8273",
+      "isEdit": false,
+      "userId": "bear"
     }
   ]
 }
