@@ -1,8 +1,9 @@
 import defaultAvarta from "assets/defaultAvarta.png";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import uuid from "react-uuid";
 import { __addLetter } from "redux/modules/fanletter";
+import { __userData } from "redux/modules/login";
 import styled from "styled-components";
 
 const FormStyle = styled.form`
@@ -45,6 +46,20 @@ function Form() {
   const nicknameHanldler = (event) => setNickname(event.target.value);
   const contentHanldler = (event) => setContent(event.target.value);
 
+  const { isloading, error, user } = useSelector((state) => {
+    return state.login;
+  });
+  useEffect(() => {
+    dispatch(__userData());
+  }, []);
+  console.log(user);
+
+  if (isloading) {
+    <div>유저데이터 불러오는 중</div>;
+  }
+  if (error) {
+    <div>{error.message}</div>;
+  }
   const date = new Date();
   const years = date.getFullYear();
   const day = date.getDate();
@@ -73,17 +88,10 @@ function Form() {
       setNickname("");
     }
   };
+
   return (
     <FormStyle>
-      <div>
-        이름 :{" "}
-        <InputStyle
-          value={nickname}
-          onChange={nicknameHanldler}
-          placeholder="이름을 20자 이내로 작성해주세요"
-          maxLength={20}
-        />
-      </div>
+      <div>이름 :{user.data.nickname} </div>
       <div>
         내용 :{" "}
         <InputStyle

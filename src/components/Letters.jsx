@@ -51,7 +51,7 @@ function Letters() {
   const writeToselect = useSelector((state) => {
     return state.filteredLetter.select;
   });
-  console.log(letters);
+
   const filteredLetter = letters.filter((L) => {
     if (writeToselect == "전체") {
       return letters;

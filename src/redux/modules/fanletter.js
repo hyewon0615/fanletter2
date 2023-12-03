@@ -1,14 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-
+import api from "../../axios/api";
 export const __addLetter = createAsyncThunk(
   "ADD_LETTER",
   async (payload, thunkAPI) => {
     try {
-      const response = await axios.post(
-        "http://localhost:4000/letters",
-        payload,
-      );
+      const response = await api.post("/letters", payload);
       return thunkAPI.fulfillWithValue(response.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -20,7 +16,7 @@ export const __deleteLetter = createAsyncThunk(
   "DELETE_LETTER",
   async (payload, thunkAPI) => {
     try {
-      await axios.delete(`http://localhost:4000/letters/${payload}`); //Promise-> resolve(네크워크 요청이 성공한 경우)-> dispatch해주는 기능을 가진 API
+      await api.delete(`/letters/${payload}`); //Promise-> resolve(네크워크 요청이 성공한 경우)-> dispatch해주는 기능을 가진 API
       return thunkAPI.fulfillWithValue(payload);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -32,7 +28,7 @@ export const __editLetter = createAsyncThunk(
   "EDIT_LETTER",
   async (payload, thunkAPI) => {
     try {
-      await axios.patch(`http://localhost:4000/letters/${payload.id}`, payload);
+      await api.patch(`/letters/${payload.id}`, payload);
       return thunkAPI.fulfillWithValue(payload);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -50,7 +46,7 @@ export const __getLetters = createAsyncThunk(
   "getLetters",
   async (payload, thunkAPI) => {
     try {
-      const response = await axios.get("http://localhost:4000/letters");
+      const response = await api.get("/letters");
 
       //Promise-> resolve(네크워크 요청이 성공한 경우)-> dispatch해주는 기능을 가진 API
       return thunkAPI.fulfillWithValue(response.data);
@@ -78,6 +74,7 @@ export const fanletter = createSlice({
       state.isLoading = false;
       state.isError = true;
     },
+
     [__addLetter.fulfilled]: (state, action) => {
       state.letters.push(action.payload);
     },
