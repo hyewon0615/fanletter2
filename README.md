@@ -21,7 +21,7 @@ redux-> redux toolkit thunk 로 변환
 
 ### as is
 
-1. 토큰 만료 시 로그인 페이지로 이동하는 것 구현 안됨 새로고침 해야함
+1. 토큰 만료 시 로그인 페이지로 이동하는 것 구현 안됨 새로고침 해야함 그래서 토큰 만료 없애버림
 2. redux toolkit thunk의 고유기능인 loading, fulfilled, rejected 활용 0%
 3. 로그인 상태 관리 엉망진창.
 4. 코드 가독성 떨어짐

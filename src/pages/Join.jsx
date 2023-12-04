@@ -93,7 +93,7 @@ function Join() {
     const toLogin = async () => {
       try {
         const response = await axios.post(
-          "https://moneyfulpublicpolicy.co.kr/login?expiresIn=1m",
+          "https://moneyfulpublicpolicy.co.kr/login",
 
           userInfo,
         );
