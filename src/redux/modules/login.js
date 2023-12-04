@@ -21,7 +21,6 @@ export const __userData = createAsyncThunk(
       localStorage.clear();
       console.log(error);
       alert("토큰이 만료되었습니다.");
-
       return thunkAPI.rejectWithValue(error);
     }
   },

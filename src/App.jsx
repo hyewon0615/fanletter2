@@ -8,15 +8,15 @@ function App() {
     return state.authSlice;
   });
 
-  const { user } = useSelector((state) => {
-    return state.login;
-  });
+  // const { user } = useSelector((state) => {
+  //   return state.login;
+  // });
 
-  useEffect(() => {
-    if (user.length === 0) {
-      dispatch(__isLogin(false));
-    }
-  }, [islogin]);
+  // useEffect(() => {
+  //   if (user.length === 0) {
+  //     dispatch(__isLogin(false));
+  //   }
+  // }, [user]);
 
   const accessToken = localStorage.getItem("accessToken");
   useEffect(() => {

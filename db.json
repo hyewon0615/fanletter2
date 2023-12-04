@@ -46,36 +46,6 @@
       "userId": "bear"
     },
     {
-      "createdAt": "2023-12-4 4:24",
-      "nickname": "곰",
-      "avatar": "/static/media/defaultAvarta.ebbc658e87ba2676635b.png",
-      "content": "어떻게 되지?",
-      "writedTo": "아이돌",
-      "id": "e00a8fde-b7b9-0130-c941-39d72ba1708e",
-      "isEdit": false,
-      "userId": "bear"
-    },
-    {
-      "createdAt": "2023-12-4 4:30",
-      "nickname": "곰",
-      "avatar": "/static/media/defaultAvarta.ebbc658e87ba2676635b.png",
-      "content": "두번째 체크",
-      "writedTo": "아이돌",
-      "id": "e34a6be0-ebf7-1a02-8792-441f97757e51",
-      "isEdit": false,
-      "userId": "bear"
-    },
-    {
-      "createdAt": "2023-12-4 8:21",
-      "nickname": "곰",
-      "avatar": "/static/media/defaultAvarta.ebbc658e87ba2676635b.png",
-      "content": "추가해볼게요..",
-      "writedTo": "아이돌",
-      "id": "d56a458c-b7d1-bbc5-80a1-afdb43ab8273",
-      "isEdit": false,
-      "userId": "bear"
-    },
-    {
       "createdAt": "2023-12-4 8:58",
       "nickname": "진짜",
       "avatar": "/static/media/defaultAvarta.ebbc658e87ba2676635b.png",
@@ -84,26 +54,6 @@
       "id": "19adfa8f-c07b-faa6-1783-25093b3ec452",
       "isEdit": false,
       "userId": "real"
-    },
-    {
-      "createdAt": "2023-12-4 9:39",
-      "nickname": "곰",
-      "avatar": "/static/media/defaultAvarta.ebbc658e87ba2676635b.png",
-      "content": "아 졸리다\n",
-      "writedTo": "아이돌",
-      "id": "5b67626a-4abc-b823-bbc0-66b08dc99273",
-      "isEdit": false,
-      "userId": "bear"
-    },
-    {
-      "createdAt": "2023-12-4 9:41",
-      "nickname": "곰",
-      "avatar": "/static/media/defaultAvarta.ebbc658e87ba2676635b.png",
-      "content": "ㄴㄴ",
-      "writedTo": "아이돌",
-      "id": "fb2a0ebe-9e9b-f9ce-7aaf-4885433a0d46",
-      "isEdit": false,
-      "userId": "bear"
     }
   ]
 }

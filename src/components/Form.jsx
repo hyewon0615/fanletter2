@@ -1,4 +1,5 @@
 import defaultAvarta from "assets/defaultAvarta.png";
+import useInput from "hooks/useInput";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import uuid from "react-uuid";
@@ -49,9 +50,8 @@ const SelectArea = styled.div`
 
 function Form() {
   const writedToSelectList = ["아이돌", "솔로가수", "배우"];
-  const [writedTo, setWritedTo] = useState("아이돌");
 
-  const writedToHanldler = (event) => setWritedTo(event.target.value);
+  const [writedTo, writedToHanldler] = useInput("아이돌");
 
   const [content, setContent] = useState("");
 
