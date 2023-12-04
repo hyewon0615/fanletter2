@@ -19,6 +19,7 @@ function Router() {
             <Route path="/home" element={<Home />} />
             <Route path="/detail/:id" element={<Detail />} />
             <Route path="/myProfile" element={<MyProfile />} />
+            <Route path="*" element={<Navigate replace to="/home" />} />
           </Route>
         </Routes>
       ) : (

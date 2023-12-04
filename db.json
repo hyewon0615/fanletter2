@@ -74,6 +74,36 @@
       "id": "d56a458c-b7d1-bbc5-80a1-afdb43ab8273",
       "isEdit": false,
       "userId": "bear"
+    },
+    {
+      "createdAt": "2023-12-4 8:58",
+      "nickname": "진짜",
+      "avatar": "/static/media/defaultAvarta.ebbc658e87ba2676635b.png",
+      "content": "이제 회원정보 수정만 남았다..",
+      "writedTo": "아이돌",
+      "id": "19adfa8f-c07b-faa6-1783-25093b3ec452",
+      "isEdit": false,
+      "userId": "real"
+    },
+    {
+      "createdAt": "2023-12-4 9:39",
+      "nickname": "곰",
+      "avatar": "/static/media/defaultAvarta.ebbc658e87ba2676635b.png",
+      "content": "아 졸리다\n",
+      "writedTo": "아이돌",
+      "id": "5b67626a-4abc-b823-bbc0-66b08dc99273",
+      "isEdit": false,
+      "userId": "bear"
+    },
+    {
+      "createdAt": "2023-12-4 9:41",
+      "nickname": "곰",
+      "avatar": "/static/media/defaultAvarta.ebbc658e87ba2676635b.png",
+      "content": "ㄴㄴ",
+      "writedTo": "아이돌",
+      "id": "fb2a0ebe-9e9b-f9ce-7aaf-4885433a0d46",
+      "isEdit": false,
+      "userId": "bear"
     }
   ]
 }

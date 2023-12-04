@@ -114,7 +114,7 @@ function Form() {
       </InputArea>
       <SelectArea>
         <div>
-          <label for="entertainer">누구에게 보낼 실 건가요? </label>
+          <label htmlFor="entertainer">누구에게 보낼 실 건가요? </label>
           <SelectStyle
             id="entertainer"
             value={writedTo}

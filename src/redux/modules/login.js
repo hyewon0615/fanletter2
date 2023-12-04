@@ -38,6 +38,7 @@ export const login = createSlice({
   name: "user",
   initialState,
   reducers: {},
+
   extraReducers: {
     [__userData.pending]: (state, action) => {
       state.isLoading = true;

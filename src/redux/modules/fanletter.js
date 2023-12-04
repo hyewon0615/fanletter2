@@ -60,6 +60,7 @@ export const fanletter = createSlice({
   name: "letters",
   initialState,
   reducers: {},
+
   extraReducers: {
     [__getLetters.pending]: (state, action) => {
       state.isLoading = true;
